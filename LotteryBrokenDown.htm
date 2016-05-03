@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    <br>
+    <h2> How Long Would it Take You To Win The Lottery?</h2>
+    <br>
+    <p>Enter amount of tickets you would like to buy per day and see how long it would take to win the lottery if odds were one in thirty five million.</p>
+    <br>
+    <form role="form">
+        <div class="form-group">
+            <label for="entry"></label>
+            <input type="text" class="form-control" id="userinput">
+        </div>
+    </form>
+
+    <br>
+    <button type="button" class="btn btn-success btn-lrg" onclick="myFunction()">Click Me to Find Out</button>
+    <br><br><br>
+
+<div id ="minute"></div>
+    <br>
+    <div id ="hour"></div>
+    <br>
+    <div id ="day"></div>
+    <br>
+    <div id="response"></div>
+    
+    <br>
+
+    <button class="btn btn-info btn-sm" onclick="myRefresh()">Try It Out Again!</button>
+
+
+
+
+
+    <script>
+       
+ //creating a function to store the user's input into var userinput from the above onsubmit button
+// var input365 is then changing the users input from a string to an integer and mulitplying it by 365 days
+// var odd is then dividing 350 million by user's input * 365 days to give you the years it would take to win lotto if 1-350 million
+        
+        
+        function myFunction() {
+            var userinput = document.getElementById("userinput").value;
+            var input365 = parseInt(userinput) * 365;
+            var odds = 350000000 / input365;
+            var days = odds * 365;
+            var hours = days * 24;
+            var minutes = hours * 60;
+           
+            document.getElementById("minute").innerHTML = minutes +" " + "  MINUTES until you win the lottery";
+            document.getElementById("hour").innerHTML = hours + " " + "  HOURS until you win the lottery";
+            document.getElementById("day").innerHTML = days + "  " + "  DAYS until you win the lottery";
+            document.getElementById("response").innerHTML = odds + " " + "  YEARS until you win the lottery";
+            
+        }
+        
+        
+        function myRefresh() {
+    location.reload();
+}
+
+    </script>
+
+
+
+</body>
+
+</html>
